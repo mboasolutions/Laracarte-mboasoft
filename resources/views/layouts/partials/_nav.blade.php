@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="{{route('root_path')}}">Laracarte</a>
+    <a class="navbar-brand" href="{{route('root_path')}}">{{config('app.name')}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -7,10 +7,10 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{route('root_path')}}">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item {{ set_active_route('root_path') }}">
+                <a class="nav-link" href="{{route('root_path')}}">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ set_active_route('about_path') }}">
                 <a class="nav-link" href="{{route('about_path')}}">About</a>
             </li>
             <li class="nav-item">

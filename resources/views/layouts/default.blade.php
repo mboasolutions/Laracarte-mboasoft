@@ -13,7 +13,8 @@
 
     <link href="{{ asset('css/default.css') }}" rel="stylesheet">
 
-    <title>Laracarte</title>
+    <title>{{ isset($title) ? page_title($title) : page_title('') }}</title>
+{{--    <title>{{ isset($title) ?  $title . ' | ' : '' }} Laracarte - List of artisans</title>--}}
     @yield('styles.header')
 </head>
 <body>
