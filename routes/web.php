@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,17 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
 Route::get(
     '/',
     [PagesController::class, 'home']
 )->name('root_path');
 
-
 Route::get(
     '/about',
     [PagesController::class, 'about']
 )->name('about_path');
+
+Route::get(
+    '/contact',
+    [ContactsController::class, 'create']
+)->name('contact_path');

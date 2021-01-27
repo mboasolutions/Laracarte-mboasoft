@@ -29,15 +29,15 @@
 
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+            <li class="nav-item {{ set_active_route('contact_path') }}">
+                <a class="nav-link" href="{{route('contact_path')}}">Contact</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item {{ set_active_route('login_path') }}">
                 <a class="nav-link" href="#">Login</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ set_active_route('register_path') }}">
                 <a class="nav-link" href="#">Register</a>
             </li>
         </ul>
