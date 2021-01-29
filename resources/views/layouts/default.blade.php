@@ -10,7 +10,10 @@
     <!-- Open Sans Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- Flashy Icon Integration -->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <link href="{{ asset('css/flashy.css') }}" rel="stylesheet">
     <link href="{{ asset('css/default.css') }}" rel="stylesheet">
 
     <title>{{ isset($title) ? page_title($title) : page_title('') }}</title>
@@ -29,6 +32,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="{{ asset('js/flashy.js') }}"></script>
 @yield('scripts.footer')
+@include('flashy::message')
 </body>
 </html>

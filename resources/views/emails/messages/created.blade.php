@@ -1,3 +1,17 @@
-<h1>{{$name}}</h1>
-<h5>{{$email}}</h5>
-<h5>{{$msg}}</h5>
+@component('mail::message')
+# Hey! Admin
+
+- {{$msg->name}}
+- {{$msg->mail}}
+
+@component('mail::panel')
+    {{$msg->message}}
+@endcomponent
+
+{{--@component('mail::button', ['url' => ''])
+Button Text
+@endcomponent--}}
+
+Thanks,<br>
+{{ config('app.name') }}
+@endcomponent
