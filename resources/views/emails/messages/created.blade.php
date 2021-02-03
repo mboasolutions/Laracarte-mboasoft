@@ -2,7 +2,7 @@
 # Hey! Admin
 
 - {{$msg->name}}
-- {{$msg->mail}}
+- {{$msg->email}}
 
 @component('mail::panel')
     {{$msg->message}}

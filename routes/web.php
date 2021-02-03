@@ -37,7 +37,7 @@ Route::post(
 )->name('contact_path');
 
 
-Route::get(
+/*Route::get(
     '/test-email',
     function (){
         return new ContactMessageCreated(
@@ -46,4 +46,4 @@ Route::get(
             'juste un message pour essayer'
         );
     }
-)->name('test-email_path');
+)->name('test-email_path');*/

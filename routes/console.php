@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Models\Message;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 
@@ -17,3 +18,11 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Artisan::command('laracarte:clean-database2', function () {
+    $this->info('Cleaning Database...');
+    Message::twoMonthsOld()->delete();
+    $this->info('Database Cleaned');
+})->purpose('Clean Database');
+
+
