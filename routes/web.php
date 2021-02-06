@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\ContactsController;
-use App\Http\Controllers\PagesController;
 use App\Mail\ContactMessageCreated;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ContactsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +49,7 @@ Route::post(
         );
     }
 )->name('test-email_path');*/
+
+Auth::routes(['verify' => true]);
+
+//Route::get('/home', [HomeController::class, 'index'])->name('home');
