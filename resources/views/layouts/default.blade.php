@@ -20,14 +20,22 @@
     <title>{{ isset($title) ? page_title($title) : page_title('') }}</title>
 {{--    <title>{{ isset($title) ?  $title . ' | ' : '' }} Laracarte - List of artisans</title>--}}
     @yield('styles.header')
+
+    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+        <li>
+            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                {{ $properties['native'] }}
+            </a>
+        </li>
+    @endforeach
 </head>
 <body>
 
 @include('layouts.partials._nav')
 
-<div class="container">
+<h6 class="container">
     @yield('content')
-</div>
+</h6>
 
 @include('layouts.partials._footer')
 

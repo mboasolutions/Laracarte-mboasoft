@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ContactsController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,25 +19,33 @@ use App\Http\Controllers\ContactsController;
 |
 */
 
-Route::get(
-    '/',
-    [PagesController::class, 'home']
-)->name('root_path');
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+], function () {
+    Route::get(
+        '/',
+        [PagesController::class, 'home']
+    )->name('root_path');
 
-Route::get(
-    '/about',
-    [PagesController::class, 'about']
-)->name('about_path');
+    Route::get(
+        '/about',
+        [PagesController::class, 'about']
+    )->name('about_path');
 
-Route::get(
-    '/contact',
-    [ContactsController::class, 'create']
-)->name('contact_path');
+    Route::get(
+        '/contact',
+        [ContactsController::class, 'create']
+    )->name('contact_path');
 
-Route::post(
-    '/contact',
-    [ContactsController::class, 'store']
-)->name('contact_path');
+    Route::post(
+        '/contact',
+        [ContactsController::class, 'store']
+    )->name('contact_path');
+
+    Auth::routes(['verify' => true]);
+
+});
 
 
 /*Route::get(
@@ -49,7 +58,5 @@ Route::post(
         );
     }
 )->name('test-email_path');*/
-
-Auth::routes(['verify' => true]);
 
 //Route::get('/home', [HomeController::class, 'index'])->name('home');

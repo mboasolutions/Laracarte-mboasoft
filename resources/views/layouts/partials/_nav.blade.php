@@ -59,6 +59,28 @@
                     </div>
                 </li>
             @endguest
+
+            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @lang('messages.local')</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        @if($localeCode === "fr")
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"><img src="{{URL::asset('img/french.png')}}" alt="profile Pic" height="20" width="20" class="rounded-circle">&nbsp;@lang('messages.fr')</a>
+                                </li>
+                            </ul>
+                        @else
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"><img src="{{URL::asset('img/english.png')}}" alt="profile Pic" height="20" width="20" class="rounded-circle">&nbsp;@lang('messages.en')</a>
+                                </li>
+                            </ul>
+                        @endif
+                    @endforeach
+                </div>
+            </li>
         </ul>
         {{--<form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
